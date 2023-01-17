@@ -14,7 +14,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         window = NSWindow(contentRect: NSRect(x: 0, y: 0, width: 400, height: 400), styleMask: [.titled, .closable, .resizable], backing: .buffered, defer: false)
         window.center()
-        window.title = "No Storyboard Window"
+        window.title = "Translate"
         window.contentViewController = ViewController()
         window.makeKeyAndOrderFront(nil)
     }
