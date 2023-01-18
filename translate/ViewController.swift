@@ -13,7 +13,7 @@ class ViewController: NSViewController, WKNavigationDelegate {
     var webView: WKWebView!
     
     override func loadView() {
-        webView = WKWebView(frame: NSRect(x: 0, y: 0, width: 400, height: 334))
+        webView = WebView(frame: NSRect(x: 0, y: 0, width: 600, height: 334))
         webView.navigationDelegate = self
         
         let url = URL(string: "https://translate.google.com/?sl=en&tl=tr")!
