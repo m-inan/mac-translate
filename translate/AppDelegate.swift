@@ -6,17 +6,28 @@
 //
 
 import Cocoa
+import HotKey
 
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-    public var window: NSWindow!
+    public var panel: FloatingPanel!
+    public var hotKey: HotKey? {
+        didSet {
+            guard let hotKey = hotKey else {
+                return
+            }
+            
+            hotKey.keyDownHandler = { [weak self] in
+                self?.panel.toggle()
+            }
+        }
+    }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
-        window = NSWindow(contentRect: .zero, styleMask: [.titled, .closable, .resizable], backing: .buffered, defer: false)
-        window.center()
-        window.title = "Translate"
-        window.contentViewController = ViewController()
-        window.makeKeyAndOrderFront(nil)
+        panel = FloatingPanel()
+        
+        // Setup hot key for control+space
+        hotKey = HotKey(key: .space, modifiers: [.control])
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

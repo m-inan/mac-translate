@@ -10,6 +10,8 @@ import WebKit
 
 
 class ViewController: NSViewController, WKNavigationDelegate {
+    public var isReady = false
+    
     var webView: WKWebView!
     
     override func loadView() {
@@ -42,5 +44,7 @@ class ViewController: NSViewController, WKNavigationDelegate {
         
             document.body.appendChild(style);
         """)
+        
+        isReady = true
     }
 }
