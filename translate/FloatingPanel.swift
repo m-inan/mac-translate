@@ -17,13 +17,24 @@ class FloatingPanel: NSPanel {
         
         level = .floating
         isFloatingPanel = true
+        isMovableByWindowBackground = true
         contentViewController = ViewController()
+        collectionBehavior = [.canJoinAllSpaces, .fullScreenAuxiliary]
         
-        center()
+        backgroundColor = .clear
+        titleVisibility = .hidden
+        titlebarAppearsTransparent = true
+        
+        contentView?.wantsLayer = true
+        contentView?.layer?.cornerRadius = 16
         
         standardWindowButton(.closeButton)?.isHidden = true
         standardWindowButton(.miniaturizeButton)?.isHidden = true
         standardWindowButton(.zoomButton)?.isHidden = true
+        
+        self.styleMask.insert(.fullSizeContentView)
+        
+        center()
     }
     
     public func toggle() {
