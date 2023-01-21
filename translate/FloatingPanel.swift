@@ -44,12 +44,18 @@ class FloatingPanel: NSPanel {
             return
         }
         
-        isPresented = !isPresented
-        
         if isPresented {
-            makeKeyAndOrderFront(nil)
+            if isKeyWindow {
+                isPresented = false
+                close()
+            } else {
+                makeKey()
+                controller.focusAndSelectField()
+            }
         } else {
-            close()
+            isPresented = true
+            makeKeyAndOrderFront(nil)
+            controller.focusAndSelectField()
         }
     }
     

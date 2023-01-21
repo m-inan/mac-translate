@@ -21,7 +21,10 @@ class ViewController: NSViewController, WKNavigationDelegate {
     }
     
     override func loadView() {
-        webView = WebView(frame: NSRect(x: 0, y: 0, width: 600, height: 334))
+        let config = WKWebViewConfiguration()
+        config.userContentController.add(self, name: "callbackHandler")
+
+        webView = WebView(frame: NSRect(x: 0, y: 0, width: 600, height: 334), configuration: config)
         webView.navigationDelegate = self
         
         let url = URL(string: "https://translate.google.com/?sl=en&tl=tr")!
@@ -54,6 +57,10 @@ class ViewController: NSViewController, WKNavigationDelegate {
         self.view.addSubview(visualEffect, positioned: .below, relativeTo: nil)
     }
     
+    override func keyDown(with event: NSEvent) {
+        // keyDown
+    }
+    
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         // disable google translate autocomplete and remove ui elements
         self.webView.evaluateJavaScript("""
@@ -77,6 +84,40 @@ class ViewController: NSViewController, WKNavigationDelegate {
             var theme = document.createElement("style");
             theme.setAttribute("id", "theme-style");
             document.body.appendChild(theme);
+        
+            document.addEventListener('keydown', function(event) {
+                const keyCode = event.keyCode;
+                const metaKey = event.metaKey;
+                // (tab) focus last application
+                if (keyCode == 9) {
+                    event.preventDefault();
+                    window.webkit.messageHandlers.callbackHandler.postMessage(keyCode);
+                }
+                
+                // (cmd + l) listen source
+                if (metaKey && keyCode == 76) {
+                    document.querySelector(".m0Qfkd .VfPpkd-Bz112c-kBDsod:not(.VfPpkd-Bz112c-kBDsod-OWXEXe-IT5dJd)").click()
+                                
+                    setTimeout(function() {
+                        var textarea = document.getElementsByTagName("textarea")[0];
+                        textarea.focus();
+                        textarea.select();
+                    }, 800)
+                }
+                
+                // (cmd + s) swap languages
+                if (metaKey && keyCode == 83) {
+                    document.querySelector(".U2dVxe > i").click();
+                }
+        
+                // (cmd + enter) click did you mean text
+                if (metaKey && keyCode == 13) {
+                    const label = document.querySelector(".mvqA2c")
+                    if (label) {
+                        label.click();
+                    }
+                }
+            })
         """)
         
         self.setTheme()
@@ -103,5 +144,29 @@ class ViewController: NSViewController, WKNavigationDelegate {
                 }
             `;
         """)
+    }
+    
+    public func focusAndSelectField() {
+        self.webView.evaluateJavaScript("""
+            setTimeout(function() {
+               var textarea = document.getElementsByTagName("textarea")[0];
+        
+                textarea.focus();
+                textarea.select();
+            }, 20);
+        """)
+    }
+}
+
+extension ViewController: WKScriptMessageHandler {
+    // keydown in webkit
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        let keyCode = message.body as? Int
+        
+        // Tab key pressed in textarea
+        if (keyCode == 9) {
+            let appDelegate = NSApplication.shared.delegate as! AppDelegate
+            appDelegate.panel.resignKey()
+        }
     }
 }
