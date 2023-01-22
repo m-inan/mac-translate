@@ -21,17 +21,16 @@ class ViewController: NSViewController, WKNavigationDelegate {
     }
     
     override func loadView() {
+        let width = Constants.WIDTH
+        let height = Constants.HEIGHT
+        let source = Constants.SOURCE_LANGUAGE
+        let translation = Constants.TRANSLATION_LANGUAGE
+
         let config = WKWebViewConfiguration()
         config.userContentController.add(self, name: "callbackHandler")
         
-        let width = Constants.WIDTH
-        let height = Constants.HEIGHT
-
         webView = WebView(frame: NSRect(x: 0, y: 0, width: width, height: height), configuration: config)
         webView.navigationDelegate = self
-        
-        let source = Constants.SOURCE_LANGUAGE
-        let translation = Constants.TRANSLATION_LANGUAGE
         
         let url = URL(string: "https://translate.google.com/?sl=\(source)&tl=\(translation)")!
         webView.load(URLRequest(url: url))
@@ -81,6 +80,17 @@ class ViewController: NSViewController, WKNavigationDelegate {
                 .feedback-link,
                 [aria-haspopup] {
                     display: none !important
+                }
+        
+                html {
+                    overflow: hidden
+                }
+                
+                body::-webkit-scrollbar {
+                    width: 0;
+                    height: 0;
+                    display: none;
+                    -webkit-appearance: none;
                 }
             `;
         
