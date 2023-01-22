@@ -23,11 +23,17 @@ class ViewController: NSViewController, WKNavigationDelegate {
     override func loadView() {
         let config = WKWebViewConfiguration()
         config.userContentController.add(self, name: "callbackHandler")
+        
+        let width = Constants.WIDTH
+        let height = Constants.HEIGHT
 
-        webView = WebView(frame: NSRect(x: 0, y: 0, width: 600, height: 334), configuration: config)
+        webView = WebView(frame: NSRect(x: 0, y: 0, width: width, height: height), configuration: config)
         webView.navigationDelegate = self
         
-        let url = URL(string: "https://translate.google.com/?sl=en&tl=tr")!
+        let source = Constants.SOURCE_LANGUAGE
+        let translation = Constants.TRANSLATION_LANGUAGE
+        
+        let url = URL(string: "https://translate.google.com/?sl=\(source)&tl=\(translation)")!
         webView.load(URLRequest(url: url))
         
         webView.wantsLayer = true
@@ -50,7 +56,6 @@ class ViewController: NSViewController, WKNavigationDelegate {
         
         visualEffect = NSVisualEffectView(frame: self.view.bounds)
         visualEffect.state = .active
-        visualEffect.material = .dark
         visualEffect.blendingMode = .behindWindow
         visualEffect.autoresizingMask = [.width, .height]
         
@@ -88,6 +93,7 @@ class ViewController: NSViewController, WKNavigationDelegate {
             document.addEventListener('keydown', function(event) {
                 const keyCode = event.keyCode;
                 const metaKey = event.metaKey;
+
                 // (tab) focus last application
                 if (keyCode == 9) {
                     event.preventDefault();
