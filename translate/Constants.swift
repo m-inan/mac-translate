@@ -6,6 +6,8 @@
 //
 
 import Foundation
+import AppKit
+import HotKey
 
 struct Constants {
     static let WIDTH = 600
@@ -13,4 +15,7 @@ struct Constants {
     
     static let SOURCE_LANGUAGE = "en"
     static let TRANSLATION_LANGUAGE = "tr"
+    
+    static let key: Key = .backslash
+    static let modifiers: NSEvent.ModifierFlags = .command
 }
