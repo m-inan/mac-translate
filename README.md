@@ -1,44 +1,37 @@
 <h1 align="center">Mac Translate</h1>
+
 <div align="center">
-	<img src="https://github.com/m-inan/mac-translate/blob/main/media/256.png?raw=true" />
+  <img src="https://github.com/m-inan/mac-translate/blob/main/media/256.png?raw=true" />
 </div>
 
 <p align="center">
-	Google Translate in Mac App like Spotlight
+  Google Translate in Mac App like Spotlight
 </p>
 
-<img src="https://github.com/m-inan/mac-translate/blob/main/media/mac-translate-app.jpg?raw=true" width="100%" />
+![](https://github.com/m-inan/mac-translate/blob/main/media/mac-translate-app.jpg?raw=true)
 
-https://github.com/m-inan/mac-translate/blob/main/media/mac-translate-app.mp4?raw=true
+## Download
 
-<h2>
-Download
-</h2>
-<p>
-[Click To Download](https://github.com/m-inan/mac-translate/releases/download/1.0.0/translate.zip). 
+#### [Click To Download](https://github.com/m-inan/mac-translate/releases/download/1.0.0/translate.zip). If it gives an error when you try to open the application:
+ 
+Go to `System Preferences > Security & Privacy` and there should be a button saying `Open Anyway`,  under the `Security` .
 
-#### If it gives an error when you try to open the application:
-Go to `System Preferences... > Security & Privacy` and there should be a button saying `Open Anyway`, under the `General` tab.
-</p>
+## Configuration
 
-<h2>
-Configuration
-</h2>
-
+	
 ```swift
 // Constants.swift
 struct Constants {
-	static let WIDTH = 600
-	static let HEIGHT = 334
-	static let SOURCE_LANGUAGE = "en" 
-	static let TRANSLATION_LANGUAGE = "tr"
-	static let key: Key = .backslash
-	static let modifiers: NSEvent.ModifierFlags = .command
+    static let WIDTH = 600
+    static let HEIGHT = 334
+    static let SOURCE_LANGUAGE = "en" 
+    static let TRANSLATION_LANGUAGE = "tr"
+    static let key: Key = .backslash
+    static let modifiers: NSEvent.ModifierFlags = .command
 }
 ```
-<h2>
-Keybindings
-</h2>
+
+## Keybindings
 
 | Shortcuts                                   | Functionality        |
 | ------------------------------------------- | -------------------- |
