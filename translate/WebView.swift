@@ -24,8 +24,6 @@ class WebView: WKWebView {
                     if NSApp.sendAction(#selector(NSText.copy(_:)), to: nil, from: self) { return true }
                 case "v":
                     if NSApp.sendAction(#selector(NSText.paste(_:)), to: nil, from: self) { return true }
-                case "a":
-                    if NSApp.sendAction(#selector(NSResponder.selectAll(_:)), to: nil, from: self) { return true }
                 default:
                 break
                 }

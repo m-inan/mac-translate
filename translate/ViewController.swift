@@ -103,6 +103,14 @@ class ViewController: NSViewController, WKNavigationDelegate {
             document.addEventListener('keydown', function(event) {
                 const keyCode = event.keyCode;
                 const metaKey = event.metaKey;
+        
+                // (cmd + a) select all text inside the textarea
+                if (metaKey && keyCode == 65) {
+                    event.preventDefault();
+                    var textarea = document.getElementsByTagName("textarea")[0];
+                    textarea.focus();
+                    textarea.select();
+                }
 
                 // (tab) focus last application
                 if (keyCode == 9) {
