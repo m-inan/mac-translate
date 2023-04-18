@@ -36,4 +36,9 @@ class WebView: WKWebView {
     override func mouseDragged(with event: NSEvent) {
         self.window?.performDrag(with: event)
     }
+    
+    override func mouseUp(with event: NSEvent) {
+        super.mouseUp(with: event)
+        self.window?.mouseUp(with: event)
+    }
 }

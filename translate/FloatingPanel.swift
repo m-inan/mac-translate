@@ -9,6 +9,7 @@ import AppKit
 
 class FloatingPanel: NSPanel {
     public var isPresented = false
+    public var isDragged = false
     
     required init() {
         let styleMask: StyleMask = [.nonactivatingPanel, .resizable, .titled, .closable]
@@ -62,5 +63,20 @@ class FloatingPanel: NSPanel {
     override func close() {
         super.close()
         isPresented = false
+    }
+    
+    override func performDrag(with event: NSEvent) {
+        super.performDrag(with: event)
+        isDragged = true
+    }
+    
+    override func mouseUp(with event: NSEvent) {
+        super.mouseUp(with: event)
+        
+        if (isDragged) {
+            let controller = contentViewController as! ViewController
+            controller.focusAndSelectField()
+            isDragged = false
+        }
     }
 }
