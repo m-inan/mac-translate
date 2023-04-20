@@ -22,9 +22,20 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             }
         }
     }
+    
+    var statusBar: NSStatusBar!
+    var statusBarItem: NSStatusItem!
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         panel = FloatingPanel()
+        
+        statusBar = NSStatusBar()
+        statusBarItem = statusBar.statusItem(withLength: NSStatusItem.variableLength)
+
+        if let button = statusBarItem.button {
+            button.image = NSImage(named: "icon")
+            button.action = #selector(statusBarItemPressed)
+        }
         
         let key = Constants.key
         let modifiers = Constants.modifiers
@@ -39,6 +50,10 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationSupportsSecureRestorableState(_ app: NSApplication) -> Bool {
         return true
+    }
+    
+    @objc func statusBarItemPressed() {
+        self.panel.toggle()
     }
 }
 
