@@ -26,8 +26,11 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         panel = FloatingPanel()
         
+        let key = Constants.key
+        let modifiers = Constants.modifiers
+        
         // Setup hot key for control+space
-        hotKey = HotKey(key: .backslash, modifiers: [.command])
+        hotKey = HotKey(key: key, modifiers: modifiers)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

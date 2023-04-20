@@ -17,5 +17,5 @@ struct Constants {
     static let TRANSLATION_LANGUAGE = "tr"
     
     static let key: Key = .backslash
-    static let modifiers: NSEvent.ModifierFlags = .command
+    static let modifiers: NSEvent.ModifierFlags = [.command]
 }
