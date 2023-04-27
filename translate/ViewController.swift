@@ -75,11 +75,20 @@ class ViewController: NSViewController, WKNavigationDelegate {
                 #kvLWu,
                 .VjFXz,
                 .VlPnLc,
+                .ebT7ne,
                 .gp-footer,
                 .hgbeOc.EjH7wc,
                 .feedback-link,
                 [aria-haspopup] {
                     display: none !important
+                }
+        
+                .leDWne {
+                    display: none;
+                }
+        
+                .QcsUad:not(.FkMbO) .lRu31, .er8xn {
+                    min-height: 65px;
                 }
         
                 html {

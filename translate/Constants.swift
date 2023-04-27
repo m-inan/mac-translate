@@ -10,8 +10,8 @@ import AppKit
 import HotKey
 
 struct Constants {
-    static let WIDTH = 600
-    static let HEIGHT = 334
+    static let WIDTH = 550
+    static let HEIGHT = 350
     
     static let SOURCE_LANGUAGE = "en"
     static let TRANSLATION_LANGUAGE = "tr"
