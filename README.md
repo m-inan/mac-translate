@@ -12,7 +12,7 @@
 
 ## Download
 
-#### [Click To Download](https://github.com/m-inan/mac-translate/releases/download/1.1.0/translate.zip). If it gives an error when you try to open the application:
+#### [Click To Download](https://github.com/m-inan/mac-translate/releases/download/1.2.0/translate.zip). If it gives an error when you try to open the application:
  
 Go to `System Preferences > Privacy & Security` and there should be a button saying `Open Anyway`,  under the `Security` .
 
