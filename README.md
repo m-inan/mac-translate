@@ -37,7 +37,7 @@ struct Constants {
 | ------------------------------------------- | -------------------- |
 | `ESC`                     			      | Hide Panel           |
 | `Tab`                     			      | Focus Last App       |
-| `CMD + /`                     			  | Toggle Panel - Focus |
+| `CMD + \`                     			  | Toggle Panel - Focus |
 | `CMD + L`                     			  | Listen Source        |
 | `CMD + S`                     			  | Swap Languages       |
 | `CMD + Enter`                     		  | Fix Typo             |
