@@ -170,6 +170,8 @@ class ViewController: NSViewController, WKNavigationDelegate {
                     color: \(color) !important;
                     box-shadow: none !important;
                     border-color: \(color) !important;
+                    border: none !important;
+                    border-top: none !important;
                 }
                 
                 .zXU7Rb, .ccvoYb.EjH7wc {
