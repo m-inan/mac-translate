@@ -140,7 +140,7 @@ class ViewController: NSViewController, WKNavigationDelegate {
                 
                 // (cmd + s) swap languages
                 if (metaKey && keyCode == 83) {
-                    document.querySelector(".U2dVxe > i").click();
+                    Array.from(document.querySelectorAll("i")).find(i => i.innerText == "swap_horiz").click();
                 }
         
                 // (cmd + enter) click did you mean text
