@@ -35,6 +35,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let button = statusBarItem.button {
             button.image = NSImage(named: "icon")
             button.action = #selector(statusBarItemPressed)
+            button.sendAction(on: [.leftMouseUp, .rightMouseUp])
         }
         
         let key = Constants.key
@@ -52,8 +53,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         return true
     }
     
-    @objc func statusBarItemPressed() {
-        self.panel.toggle()
+    @objc func statusBarItemPressed(sender: NSStatusBarButton) {
+        let event = NSApp.currentEvent!
+        
+        if event.type == NSEvent.EventType.rightMouseUp {
+            NSApplication.shared.terminate(self)
+        } else {
+            self.panel.toggle()
+        }
     }
 }
 

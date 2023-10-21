@@ -26,6 +26,7 @@
 		E971B79129743F7B00375242 /* translate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = translate.entitlements; sourceTree = "<group>"; };
 		E971B7972974404400375242 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		E97A8B22297794B500F84FBA /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		E9C3AD802AE47287009CEBDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		E9FE498D297C425200104027 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,6 +61,7 @@
 		E971B78729743F7900375242 /* translate */ = {
 			isa = PBXGroup;
 			children = (
+				E9C3AD802AE47287009CEBDA /* Info.plist */,
 				E971B78829743F7900375242 /* AppDelegate.swift */,
 				E971B78A29743F7900375242 /* ViewController.swift */,
 				E971B78C29743F7B00375242 /* Assets.xcassets */,
@@ -284,6 +286,7 @@
 				DEVELOPMENT_TEAM = TH24236SE5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = translate/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -311,6 +314,7 @@
 				DEVELOPMENT_TEAM = TH24236SE5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = translate/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
 				LD_RUNPATH_SEARCH_PATHS = (
